@@ -1,0 +1,19 @@
+version: '3'
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'  # Or gitlab/gitlab-ce:latest for the Community Edition
+    restart: always
+    hostname: 'gitlab.local'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost'
+      GITLAB_ROOT_PASSWORD: 'anish123'  # Set the initial root password
+      GITLAB_ROOT_EMAIL: 'anish.arvind407@gmail.com'      # Optional: Set the initial root email
+    ports:
+      - '8085:80'
+      - '8443:443'
+      - '2222:22'
+    volumes:
+      - './gitlab/config:/etc/gitlab'
+      - './gitlab/logs:/var/log/gitlab'
+      - './gitlab/data:/var/opt/gitlab'

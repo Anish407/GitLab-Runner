@@ -1,0 +1,39 @@
+concurrent = 1
+check_interval = 0
+connection_max_age = "15m0s"
+shutdown_timeout = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "myrunner"
+  url = "https://gitlab.com"
+  id = 41574387
+  token = "glrt-SRk725auciyKj3t216TZ"
+  token_obtained_at = 2024-09-29T07:37:49Z
+  token_expires_at = 0001-01-01T00:00:00Z
+  executor = "shell"
+  shell = "pwsh"
+  [runners.custom_build_dir]
+  [runners.cache]
+    MaxUploadedArchiveSize = 0
+    [runners.cache.s3]
+    [runners.cache.gcs]
+    [runners.cache.azure]
+
+[[runners]]
+  name = "firstrunner"
+  url = "http://localhost"
+  id = 1
+  token = "glrt-mzuf1QAt5564kYr5U7z4"
+  token_obtained_at = 2024-09-29T22:08:54Z
+  token_expires_at = 0001-01-01T00:00:00Z
+  executor = "shell"
+  shell = "pwsh"
+  [runners.custom_build_dir]
+  [runners.cache]
+    MaxUploadedArchiveSize = 0
+    [runners.cache.s3]
+    [runners.cache.gcs]
+    [runners.cache.azure]

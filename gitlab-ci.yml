@@ -1,0 +1,37 @@
+# Define the stages of the pipeline
+stages:
+  - build
+  - test
+  - deploy
+
+# Define a job for building the application
+build_job:
+  stage: build
+  script:
+    - echo "Building the application..."
+    - mkdir build
+    - touch build/output.txt  # Simulate a build artifact
+    - echo "Build complete!" > build/output.txt
+  artifacts:
+    paths:
+      - build/  # Store the build artifact for use in later stages
+
+# Define a job for running tests
+test_job:
+  stage: test
+  script:
+    - echo "Running tests..."
+    - sleep 3  # Simulate a test duration
+    - echo "Tests passed successfully."
+
+# Define a job for deployment
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Deploying the application..."
+    - sleep 2  # Simulate a deployment process
+    - echo "Deployment completed!"
+
+# Optional: Specify that jobs only run on specific branches (e.g., main)
+# only:
+#   - main
